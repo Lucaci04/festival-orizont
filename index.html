@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Festivalul Orizont 2026 • Plaja Belvedere, Constanța</title>
+  <meta name="description" content="Festivalul de Muzică Ușoară, Neo-Disco și Creație Contemporană pe Plaja Belvedere Nord, Constanța. Ediția a XIV-a, 21–23 August." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,600&family=Montserrat:wght@400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-festival">
+  <!-- Dynamic Purple-Blue Fade + Kinetic Retro Swirls Canvas -->
+  <div class="bg-stage" aria-hidden="true">
+    <div class="fade-layer fade-layer-1"></div>
+    <div class="fade-layer fade-layer-2"></div>
+    <canvas id="swirlsCanvas"></canvas>
+
+    <!-- Retro-Modern Botanical / Coastal Frame Accents (inspired by Mamaia leaves/swirls) -->
+    <svg class="coastal-ornament ornament-left" viewBox="0 0 220 520" fill="none">
+      <path d="M-20 480 C60 410, 140 330, 170 190 C120 210, 60 260, -10 340 Z" fill="url(#leafGrad1)" opacity="0.55"/>
+      <path d="M-30 370 C50 280, 120 190, 135 60 C80 110, 20 180, -20 270 Z" fill="url(#leafGrad2)" opacity="0.45"/>
+      <path d="M0 520 C90 460, 175 390, 205 280" stroke="#f5c26b" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.4"/>
+      <defs>
+        <linearGradient id="leafGrad1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#8b3dff"/>
+          <stop offset="100%" stop-color="#10007a" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="leafGrad2" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#00d2ff"/>
+          <stop offset="100%" stop-color="#2a086c" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <svg class="coastal-ornament ornament-right" viewBox="0 0 220 520" fill="none">
+      <path d="M240 40 C160 110, 80 190, 50 330 C100 310, 160 260, 230 180 Z" fill="url(#leafGrad1)" opacity="0.55"/>
+      <path d="M250 150 C170 240, 100 330, 85 460 C140 410, 200 340, 240 250 Z" fill="url(#leafGrad2)" opacity="0.45"/>
+      <path d="M220 0 C130 60, 45 130, 15 240" stroke="#f5c26b" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.4"/>
+    </svg>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <header class="top-nav">
+    <div class="container nav-inner">
+      <a href="#acasa" class="nav-brand-mini">
+        <span class="mini-emblem">ORIZONT ’26</span>
+        <span class="mini-loc">PLAJA BELVEDERE • CONSTANȚA</span>
+      </a>
+      <nav class="nav-links" aria-label="Meniu Festival">
+        <a href="#sectiuni">Afișe & Secțiuni</a>
+        <a href="#lineup">Recitaluri & Orchestră</a>
+        <a href="#program">Program pe Seri</a>
+        <a href="#concurs">Preselecție & Vot</a>
+        <a href="#parteneri">Parteneri & Sponsori</a>
+      </nav>
+      <div class="nav-cta">
+        <button type="button" class="btn-outline-retro" id="openPressBtn">Acreditare Jurnaliști</button>
+        <button type="button" class="btn-gold-retro" data-open-ticket="Abonament 3 Seri — Amfiteatrul pe Nisip">Cumpără Bilete</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="acasa">
+    <!-- =================================================================
+         HERO: MONUMENTAL RETRO-MODERN FESTIVAL LOGO & CREST
+         ================================================================= -->
+    <section class="hero-crest-section">
+      <div class="container">
+        <div class="crest-wrapper">
+          <!-- Custom SVG Retro-Modern Festival Logo (Seagull + Sunburst + Vinyl Waves + Lyre) -->
+          <svg class="festival-master-logo" viewBox="0 0 680 310" role="img" aria-label="Logo Festivalul Orizont Constanța 2026">
+            <defs>
+              <linearGradient id="sunGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffe29f" />
+                <stop offset="50%" stop-color="#ffa99f" />
+                <stop offset="100%" stop-color="#f04e56" />
+              </linearGradient>
+              <linearGradient id="waveViolet" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#7c3aed" />
+                <stop offset="50%" stop-color="#38bdf8" />
+                <stop offset="100%" stop-color="#a855f7" />
+              </linearGradient>
+              <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="6" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+
+            <!-- Outer Retro Arch & Rays -->
+            <g class="logo-rays" opacity="0.85">
+              <circle cx="340" cy="145" r="112" fill="none" stroke="url(#sunGold)" stroke-width="1.5" stroke-dasharray="3 5" />
+              <circle cx="340" cy="145" r="96" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1" />
+              <!-- Sunburst lines -->
+              <line x1="340" y1="14" x2="340" y2="38" stroke="#f5c26b" stroke-width="2.5" />
+              <line x1="275" y1="28" x2="286" y2="49" stroke="#f5c26b" stroke-width="2" />
+              <line x1="405" y1="28" x2="394" y2="49" stroke="#f5c26b" stroke-width="2" />
+              <line x1="220" y1="62" x2="238" y2="77" stroke="#f5c26b" stroke-width="2" />
+              <line x1="460" y1="62" x2="442" y2="77" stroke="#f5c26b" stroke-width="2" />
+              <line x1="185" y1="112" x2="208" y2="119" stroke="#f5c26b" stroke-width="1.5" />
+              <line x1="495" y1="112" x2="472" y2="119" stroke="#f5c26b" stroke-width="1.5" />
+            </g>
+
+            <!-- Sliced Retro Sun Disc -->
+            <clipPath id="sunSlices">
+              <rect x="250" y="55" width="180" height="42" />
+              <rect x="250" y="102" width="180" height="16" />
+              <rect x="250" y="123" width="180" height="12" />
+              <rect x="250" y="140" width="180" height="8" />
+            </clipPath>
+            <circle cx="340" cy="142" r="78" fill="url(#sunGold)" clip-path="url(#sunSlices)" />
+
+            <!-- Stylized Orizonts / Seagull Wing + Musical Clef Silhouette -->
+            <path d="M235 128 C275 88, 318 98, 340 132 C362 98, 405 88, 445 128 C412 112, 368 120, 340 154 C312 120, 268 112, 235 128 Z"
+                  fill="#ffffff" filter="url(#softGlow)" />
+
+            <!-- Coastal Ribbon Waves -->
+            <path d="M170 168 Q 255 142, 340 168 T 510 168" fill="none" stroke="url(#waveViolet)" stroke-width="6" stroke-linecap="round" />
+            <path d="M200 184 Q 270 162, 340 184 T 480 184" fill="none" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round" />
+
+            <!-- Top Ribbon Text -->
+            <text x="340" y="218" text-anchor="middle" fill="#f5c26b" font-family="Montserrat, sans-serif" font-size="12" font-weight="800" letter-spacing="7">
+              FESTIVALUL NAȚIONAL AL MĂRII
+            </text>
+
+            <!-- Main Emblem Wordmark -->
+            <text x="340" y="264" text-anchor="middle" fill="#ffffff" font-family="Syne, sans-serif" font-size="48" font-weight="800" letter-spacing="6">
+              ORIZONT
+            </text>
+
+            <!-- Location & Year Cartouche -->
+            <rect x="205" y="278" width="270" height="26" rx="13" fill="#f04e56" />
+            <text x="340" y="295" text-anchor="middle" fill="#ffffff" font-family="Montserrat, sans-serif" font-size="11.5" font-weight="800" letter-spacing="3.5">
+              PLAJA BELVEDERE • CONSTANȚA 2026
+            </text>
+          </svg>
+
+          <div class="cartus-top">
+            <h4>
+              <span>21 – 23 AUGUST 2026</span> • AMFITEATRUL PE NISIP „GOLFUL DE SAFIR”, CONSTANȚA
+            </h4>
+            <p class="hero-lead">
+              Trei seri de gală pe malul Mării Negre: de la șlagărele reinterpretate sub bagheta Orchestrei Litoralului până la noul val electro-simfonic și neo-disco românesc.
+            </p>
+          </div>
+        </div>
+
+        <!-- ===============================================================
+             DUAL POSTER SELECTOR (EXACT MAMAIA STRUCTURE, RETRO-MODERN ART)
+             =============================================================== -->
+        <div id="sectiuni" class="poster-selector-grid">
+          <!-- Poster 1: Muzică Ușoară & Neo-Disco -->
+          <article class="landing-poster-card">
+            <a href="#lineup" class="poster-link" data-select-tab="usoara">
+              <div class="poster-artwork poster-usoara">
+                <!-- Custom SVG Retro Poster 1 -->
+                <svg viewBox="0 0 480 600" class="poster-svg" aria-label="Afiș Secțiunea Muzică Ușoară și Neo-Disco">
+                  <defs>
+                    <linearGradient id="p1Bg" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#2a095e" />
+                      <stop offset="55%" stop-color="#171569" />
+                      <stop offset="100%" stop-color="#0b246e" />
+                    </linearGradient>
+                    <linearGradient id="p1Sun" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#ffcf71" />
+                      <stop offset="100%" stop-color="#f04e56" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="480" height="600" fill="url(#p1Bg)" />
+                  <!-- Decorative Poster Border -->
+                  <rect x="18" y="18" width="444" height="564" rx="14" fill="none" stroke="rgba(245,194,107,0.45)" stroke-width="1.5" />
+
+                  <!-- Retro Sun & Perspective Grid over the Sea -->
+                  <circle cx="240" cy="240" r="115" fill="url(#p1Sun)" />
+                  <path d="M90 250 C165 215, 315 215, 390 250" fill="none" stroke="#fff" stroke-width="4" />
+                  <!-- Sea Reflection Stripes -->
+                  <rect x="60" y="275" width="360" height="175" fill="#120c44" opacity="0.88" />
+                  <path d="M60 295 Q 150 280, 240 295 T 420 295" stroke="#ffcf71" stroke-width="3" fill="none" />
+                  <path d="M80 325 Q 160 310, 240 325 T 400 325" stroke="#f04e56" stroke-width="3" fill="none" />
+                  <path d="M100 355 Q 170 340, 240 355 T 380 355" stroke="#a855f7" stroke-width="3" fill="none" />
+                  <path d="M120 385 Q 180 370, 240 385 T 360 385" stroke="#38bdf8" stroke-width="3" fill="none" />
+
+                  <!-- Stylized Mid-Century Microphone & Lyre -->
+                  <g transform="translate(240, 215)">
+                    <rect x="-18" y="-50" width="36" height="58" rx="18" fill="#10007a" stroke="#ffcf71" stroke-width="3" />
+                    <line x1="-18" y1="-32" x2="18" y2="-32" stroke="#ffcf71" stroke-width="2" />
+                    <line x1="-18" y1="-20" x2="18" y2="-20" stroke="#ffcf71" stroke-width="2" />
+                    <line x1="-18" y1="-8" x2="18" y2="-8" stroke="#ffcf71" stroke-width="2" />
+                    <path d="M-28 -18 A 28 28 0 0 0 28 -18" fill="none" stroke="#ffffff" stroke-width="3" />
+                    <line x1="0" y1="10" x2="0" y2="55" stroke="#ffffff" stroke-width="4" />
+                  </g>
+
+                  <!-- Poster Typography -->
+                  <text x="240" y="65" text-anchor="middle" fill="#ffcf71" font-family="Montserrat" font-size="13" font-weight="800" letter-spacing="5">21 – 23 AUGUST • CONSTANȚA</text>
+                  <text x="240" y="95" text-anchor="middle" fill="#ffffff" font-family="Syne" font-size="24" font-weight="800" letter-spacing="3">ORIZONT ’26</text>
+
+                  <text x="240" y="490" text-anchor="middle" fill="#ffffff" font-family="Fraunces, serif" font-size="30" font-weight="800">MUZICĂ UȘOARĂ</text>
+                  <text x="240" y="522" text-anchor="middle" fill="#ffcf71" font-family="Montserrat" font-size="16" font-weight="800" letter-spacing="4">&amp; NEO-DISCO SIMFONIC</text>
+                  <text x="240" y="555" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Montserrat" font-size="11" font-weight="600" letter-spacing="2">AMFITEATRUL PLAJA BELVEDERE NORD</text>
+                </svg>
+              </div>
+              <h3>Secțiunea Națională de Muzică Ușoară &amp; Neo-Disco „Orizont”</h3>
+            </a>
+            <div class="poster-actions">
+              <button type="button" class="btn-mamaia-primary" data-open-ticket="Secțiunea Muzică Ușoară & Neo-Disco">Cumpără bilete</button>
+              <button type="button" class="btn-mamaia-secondary" data-open-press="Muzică Ușoară & Neo-Disco">Acreditare jurnaliști</button>
+            </div>
+          </article>
+
+          <!-- Poster 2: Valul Alternativ & Electro-Acustic -->
+          <article class="landing-poster-card">
+            <a href="#lineup" class="poster-link" data-select-tab="alternativ">
+              <div class="poster-artwork poster-alternativ">
+                <!-- Custom SVG Retro Poster 2 -->
+                <svg viewBox="0 0 480 600" class="poster-svg" aria-label="Afiș Secțiunea Seara Valului Nou și Electro-Acustic">
+                  <defs>
+                    <linearGradient id="p2Bg" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#14074a" />
+                      <stop offset="50%" stop-color="#2b0f6e" />
+                      <stop offset="100%" stop-color="#07326e" />
+                    </linearGradient>
+                    <linearGradient id="p2Moon" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#38bdf8" />
+                      <stop offset="100%" stop-color="#a855f7" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="480" height="600" fill="url(#p2Bg)" />
+                  <rect x="18" y="18" width="444" height="564" rx="14" fill="none" stroke="rgba(56,189,248,0.45)" stroke-width="1.5" />
+
+                  <!-- Concentric Sound Rings & Lighthouse Beam -->
+                  <circle cx="240" cy="240" r="120" fill="none" stroke="rgba(168,85,247,0.35)" stroke-width="2" />
+                  <circle cx="240" cy="240" r="92" fill="url(#p2Moon)" opacity="0.85" />
+                  <!-- Lighthouse Silhouette (Farul din Golf) -->
+                  <polygon points="222,360 258,360 248,195 232,195" fill="#10007a" stroke="#ffffff" stroke-width="2" />
+                  <rect x="228" y="176" width="24" height="19" fill="#ffcf71" />
+                  <polygon points="240,185 70,120 70,220" fill="rgba(255,207,113,0.28)" />
+                  <polygon points="240,185 410,120 410,220" fill="rgba(56,189,248,0.28)" />
+
+                  <!-- Geometric Vinyl Wave -->
+                  <path d="M60 360 C130 320, 190 400, 240 360 C290 320, 350 400, 420 360" fill="none" stroke="#ffffff" stroke-width="4" />
+                  <path d="M60 390 C130 350, 190 430, 240 390 C290 350, 350 430, 420 390" fill="none" stroke="#38bdf8" stroke-width="3" />
+                  <path d="M60 420 C130 380, 190 460, 240 420 C290 380, 350 460, 420 420" fill="none" stroke="#f04e56" stroke-width="2.5" />
+
+                  <text x="240" y="65" text-anchor="middle" fill="#38bdf8" font-family="Montserrat" font-size="13" font-weight="800" letter-spacing="5">21 – 23 AUGUST • CONSTANȚA</text>
+                  <text x="240" y="95" text-anchor="middle" fill="#ffffff" font-family="Syne" font-size="24" font-weight="800" letter-spacing="3">ORIZONT ’26</text>
+
+                  <text x="240" y="490" text-anchor="middle" fill="#ffffff" font-family="Fraunces, serif" font-size="29" font-weight="800">NOCTURNA PE FALEZĂ</text>
+                  <text x="240" y="522" text-anchor="middle" fill="#38bdf8" font-family="Montserrat" font-size="16" font-weight="800" letter-spacing="3.5">SYNTH-POP &amp; VALUL ALTERNATIV</text>
+                  <text x="240" y="555" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Montserrat" font-size="11" font-weight="600" letter-spacing="2">DIGUL DE LA FARUL DE CRISTAL</text>
+                </svg>
+              </div>
+              <h3>Festivalul Nocturn de Synth-Pop, Indie &amp; Sunet Costier „Farul de Cristal”</h3>
+            </a>
+            <div class="poster-actions">
+              <button type="button" class="btn-mamaia-primary" data-open-ticket="Secțiunea Nocturna pe Faleză">Cumpără bilete</button>
+              <button type="button" class="btn-mamaia-secondary" data-open-press="Nocturna pe Faleză">Acreditare jurnaliști</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         POSTER LINEUP SECTION (WITH RETRO SUN WATERMARK LIKE MAMAIA CSS)
+         ================================================================= -->
+    <section id="lineup" class="lineup-poster-section">
+      <div class="container">
+        <div class="lineup-sun-backdrop">
+          <!-- Mode Switcher Pills -->
+          <div class="lineup-tabs" role="tablist">
+            <button type="button" class="lineup-tab active" data-tab="usoara">
+              Afișul I: Muzică Ușoară &amp; Neo-Disco
+            </button>
+            <button type="button" class="lineup-tab" data-tab="alternativ">
+              Afișul II: Nocturna Synth &amp; Alternativ
+            </button>
+          </div>
+
+          <p class="lineup-date-loc" id="lineupVenueHeader">
+            21–23 AUGUST 2026<br />
+            <span>PIAȚETA SOLARIS &amp; PLAJA BELVEDERE NORD, CONSTANȚA</span>
+          </p>
+
+          <!-- Big Typographic Festival Poster Names (Fictional Romanian & Coastal Artists) -->
+          <div class="lineup-headliners" id="lineupHeadliners">
+            <!-- Populated dynamically by app.js -->
+          </div>
+
+          <p class="lineup-more">Și invitați speciali în recital</p>
+
+          <div class="orchestra-credit" id="orchestraCredit">
+            <h2>Orchestra Reverberații Maritime a Festivalului „Orizont”</h2>
+            <p>Dirijor principal: <strong>Maestrul Cezar Vornicu</strong> • Aranjamente analogice: <strong>Toma Filotti</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         PROGRAMUL PE SERI (3 COLUMNS LIKE .mamaia-program)
+         ================================================================= -->
+    <section id="program" class="program-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow-tag">PROGRAM OFICIAL • TREI SERI LA MAREA NEAGRĂ</span>
+          <h2>DESFĂȘURĂTORUL SERILOR DE GALĂ</h2>
+        </div>
+
+        <div class="mamaia-program">
+          <!-- Vineri -->
+          <div class="mamaia-program-box">
+            <h3>VINERI • 21 AUGUST<br /><small>DESCHIDEREA OFICIALĂ &amp; CONCURS INTERPRETARE</small></h3>
+            <h2>ORA 19:30 • AMFITEATRUL PE NISIP</h2>
+            <ul>
+              <li>CORUL SIMFONIC „TOMIS”</li>
+              <li>MIRUNA STĂNESCU</li>
+              <li>GRUPUL „VERA &amp; COMETELE”</li>
+              <li>VLADIMIR CĂLINESCU</li>
+              <li>AURELIA ȘERBAN</li>
+            </ul>
+            <h2>ORA 23:00 • DIGUL DE LA FAR</h2>
+            <p class="night-recital">Recital extraordinar la malul mării: <strong>SOLARIS ’84</strong> &amp; foc de artificii pe apă.</p>
+          </div>
+
+          <!-- Sâmbătă -->
+          <div class="mamaia-program-box featured-night">
+            <h3>SÂMBĂTĂ • 22 AUGUST<br /><small>SEARA DE CREAȚIE &amp; NEO-DISCO</small></h3>
+            <h2>ORA 19:30 • AMFITEATRUL PE NISIP</h2>
+            <ul>
+              <li>RADU MĂRGINEANU</li>
+              <li>CLARA VÂLCEANU</li>
+              <li>SEXTETUL „DELFINUL DE AUR”</li>
+              <li>SORINEL &amp; MAGNETIC BAND</li>
+              <li>ELENA DOBROGEANU</li>
+            </ul>
+            <h2>ORA 23:30 • DIGUL DE LA FAR</h2>
+            <p class="night-recital">Nocturna analogică pe plajă: <strong>KRONOS RIVIERA</strong> &amp; <strong>MAGDA IONESCU</strong>.</p>
+          </div>
+
+          <!-- Duminică -->
+          <div class="mamaia-program-box">
+            <h3>DUMINICĂ • 23 AUGUST<br /><small>GALA LAUREAȚILOR „TROFEUL ORIZONT”</small></h3>
+            <h2>ORA 20:00 • AMFITEATRUL PE NISIP</h2>
+            <ul>
+              <li>DECERNAREA TROFEULUI</li>
+              <li>ORCHESTRA LITORALULUI</li>
+              <li>VICTOR HANGANU</li>
+              <li>DIANA COMAN &amp; ORIZONT</li>
+              <li>RECITAL DE ADIO LA RĂSĂRIT</li>
+            </ul>
+            <h2>ORA 23:45 • GOLFUL DE SAFIR</h2>
+            <p class="night-recital">Concert final cu lasere și proiecții pe pânze de veliere în largul mării.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         CONCURS, JURIU, PRESELECȚIE & VOTUL PUBLICULUI (MAMAIA WHITE CARD)
+         ================================================================= -->
+    <section id="concurs" class="concurs-section">
+      <div class="container">
+        <div class="mamaia-inscriere-box">
+          <span class="card-stamp">EDIȚIA A XIV-A • OFICIAL</span>
+          <h1>CONCURSUL NAȚIONAL „TROFEUL ORIZONT” 2026</h1>
+          <h3 class="subtitle-dates">21 – 23 AUGUST • PLAJA BELVEDERE NORD, CONSTANȚA</h3>
+
+          <div class="jury-block">
+            <h4>JURIUL CONCURSULUI ȘI AL PRESELECȚIEI</h4>
+            <p class="jury-names">
+              Cezar Vornicu (Președinte Juriu) • Ileana Dumitrescu • Șerban Cristea • Margareta Sava • Octavian Lupu • Doina Enache • Horia Zamfirescu
+            </p>
+          </div>
+
+          <div class="qualifiers-grid">
+            <div class="qualifier-col">
+              <h4>REZULTATE PRESELECȚIE<br />SECȚIUNEA INTERPRETARE</h4>
+              <p class="qual-header">CANDIDAȚI FICTIVI CALIFICAȚI ÎN FINALĂ</p>
+              <ul class="candidates-list">
+                <li>1. Ardeleanu Sofia — Constanța</li>
+                <li>2. Bădescu Matei Ștefan — București</li>
+                <li>3. Cernat Daria Ioana — Iași</li>
+                <li>4. Dumitru Alexandru — Cluj-Napoca</li>
+                <li>5. Florescu Bianca Maria — Mangalia</li>
+                <li>6. Grigorescu Toma — Brașov</li>
+                <li>7. Iancu Evelina — Timișoara</li>
+                <li>8. Marinescu Rareș — Tulcea</li>
+              </ul>
+            </div>
+
+            <div class="qualifier-col">
+              <h4>REZULTATE PRESELECȚIE<br />SECȚIUNEA CREAȚIE</h4>
+              <p class="qual-header">PIESE FICTIVE CALIFICATE (VOTEAZĂ FAVORITA)</p>
+              <form id="publicVoteForm" class="vote-list">
+                <label class="custom-checkbox-vote checked">
+                  <input type="radio" name="songVote" value="Scrisoare de pe Digul Vechi" checked />
+                  <span><strong>Clara Vâlceanu</strong> — „Scrisoare de pe Digul Vechi”</span>
+                  <em class="vote-count" data-votes="412">412 voturi</em>
+                </label>
+                <label class="custom-checkbox-vote">
+                  <input type="radio" name="songVote" value="Tramvaiul de Seară spre Mamaia" />
+                  <span><strong>Vlad Călinescu</strong> — „Tramvaiul de Seară spre Mamaia”</span>
+                  <em class="vote-count" data-votes="389">389 voturi</em>
+                </label>
+                <label class="custom-checkbox-vote">
+                  <input type="radio" name="songVote" value="Când Farul Clipeste de Trei Ori" />
+                  <span><strong>Sextetul Delfinul</strong> — „Când Farul Clipește de Trei Ori”</span>
+                  <em class="vote-count" data-votes="354">354 voturi</em>
+                </label>
+                <label class="custom-checkbox-vote">
+                  <input type="radio" name="songVote" value="Valuri de Catifea Albastră" />
+                  <span><strong>Miruna Stănescu</strong> — „Valuri de Catifea Albastră”</span>
+                  <em class="vote-count" data-votes="508">508 voturi</em>
+                </label>
+                <label class="custom-checkbox-vote">
+                  <input type="radio" name="songVote" value="Ultimul Pescăruș din August" />
+                  <span><strong>Sorinel &amp; Magnetic</strong> — „Ultimul Pescăruș din August”</span>
+                  <em class="vote-count" data-votes="297">297 voturi</em>
+                </label>
+                <button type="submit" class="btn-vote-submit">Înregistrează Votul Publicului</button>
+                <p id="voteConfirmation" class="vote-feedback" aria-live="polite"></p>
+              </form>
+            </div>
+          </div>
+
+          <div class="box-office-notice">
+            <p>
+              <strong>CASA DE BILETE DE PE FALEZĂ:</strong> Biletele fizice pot fi achiziționate și de la pavilionul retro amplasat în <strong>Piațeta Belvedere Nord</strong> (lângă Esplanada Cazino Nou), deschis zilnic între orele <strong>15:00 – 21:00</strong>.
+            </p>
+            <div class="notice-buttons">
+              <button type="button" class="btn-mamaia-dark" data-open-ticket="Abonament Gală — Concurs & Recitaluri">Rezervă Loc în Amfiteatru</button>
+              <button type="button" class="btn-mamaia-outline-dark" id="openRulesBtn">Consultă Regulamentul Oficial</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         PARTENERI MEDIA & SPONSORI FICTIVI (CUSTOM SVG VECTOR LOGOS)
+         ================================================================= -->
+    <section id="parteneri" class="partners-section">
+      <div class="container">
+        <!-- Parteneri Media Fictivi -->
+        <div class="mamaia-tvlogos-box">
+          <h4 class="footer-burada">Parteneri Media Oficiali (Fictivi)</h4>
+          <div class="svg-logos-row">
+            <!-- Logo 1: TELEVIZIUNEA LITORAL 1 -->
+            <div class="vector-logo-card" title="Televiziunea Națională Litoral 1">
+              <svg viewBox="0 0 190 64" class="partner-svg">
+                <rect x="4" y="10" width="44" height="44" rx="10" fill="#f04e56" />
+                <path d="M16 22 L16 42 L34 42" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <circle cx="36" cy="24" r="4" fill="#ffcf71" />
+                <text x="58" y="31" fill="#ffffff" font-family="Syne" font-size="16" font-weight="800">LITORAL 1</text>
+                <text x="58" y="46" fill="#a5b4fc" font-family="Montserrat" font-size="9" font-weight="700" letter-spacing="2">TELEVIZIUNEA MĂRII</text>
+              </svg>
+            </div>
+
+            <!-- Logo 2: RADIO BRIZA 94.2 FM CONSTANȚA -->
+            <div class="vector-logo-card" title="Radio Briza Constanța 94.2 FM">
+              <svg viewBox="0 0 210 64" class="partner-svg">
+                <circle cx="28" cy="32" r="22" fill="none" stroke="#38bdf8" stroke-width="3" />
+                <path d="M16 34 Q 28 22, 40 34" stroke="#ffcf71" stroke-width="3" fill="none" />
+                <path d="M20 41 Q 28 33, 36 41" stroke="#ffffff" stroke-width="2.5" fill="none" />
+                <text x="60" y="30" fill="#ffffff" font-family="Syne" font-size="15" font-weight="800">RADIO BRIZA</text>
+                <text x="60" y="46" fill="#38bdf8" font-family="Montserrat" font-size="9.5" font-weight="700" letter-spacing="1.5">94.2 FM • CONSTANȚA</text>
+              </svg>
+            </div>
+
+            <!-- Logo 3: JURNALUL DE TOMIS -->
+            <div class="vector-logo-card" title="Cotidianul Jurnalul de Tomis">
+              <svg viewBox="0 0 205 64" class="partner-svg">
+                <rect x="6" y="12" width="40" height="40" rx="6" fill="none" stroke="#ffcf71" stroke-width="2.5" />
+                <text x="26" y="39" text-anchor="middle" fill="#ffcf71" font-family="Fraunces, serif" font-size="22" font-weight="800">JT</text>
+                <text x="56" y="30" fill="#ffffff" font-family="Fraunces, serif" font-size="15" font-weight="800">Jurnalul de Tomis</text>
+                <text x="56" y="45" fill="#cbd5e1" font-family="Montserrat" font-size="8.5" font-weight="700" letter-spacing="2">FONDAT FICTIV 1968</text>
+              </svg>
+            </div>
+
+            <!-- Logo 4: DISCOTECA SOLARIS FM -->
+            <div class="vector-logo-card" title="Solaris Retro FM">
+              <svg viewBox="0 0 195 64" class="partner-svg">
+                <circle cx="28" cy="32" r="20" fill="#7c3aed" />
+                <circle cx="28" cy="32" r="7" fill="#ffcf71" />
+                <text x="58" y="31" fill="#ffffff" font-family="Syne" font-size="15" font-weight="800">SOLARIS FM</text>
+                <text x="58" y="46" fill="#e9d5ff" font-family="Montserrat" font-size="9" font-weight="700" letter-spacing="2">SUNETUL RIVIEREI</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sponsori Fictivi -->
+        <div class="mamaia-tvlogos-box">
+          <h4 class="footer-burada">Sponsori Oficiali ai Ediției</h4>
+          <div class="svg-logos-row">
+            <!-- Sponsor 1: CRAMA COLINELE HISTRIEI -->
+            <div class="vector-logo-card" title="Crama Colinele Histriei">
+              <svg viewBox="0 0 215 64" class="partner-svg">
+                <path d="M26 12 L38 32 L26 52 L14 32 Z" fill="none" stroke="#ffcf71" stroke-width="2.5" />
+                <circle cx="26" cy="32" r="5" fill="#f04e56" />
+                <text x="50" y="30" fill="#ffffff" font-family="Fraunces, serif" font-size="15" font-weight="800">Colinele Histriei</text>
+                <text x="50" y="45" fill="#ffcf71" font-family="Montserrat" font-size="8.5" font-weight="700" letter-spacing="2">VINURI DE LITORAL</text>
+              </svg>
+            </div>
+
+            <!-- Sponsor 2: BANCA MARITIMĂ DOBROGEA -->
+            <div class="vector-logo-card" title="Banca Maritimă Dobrogea">
+              <svg viewBox="0 0 220 64" class="partner-svg">
+                <rect x="8" y="14" width="36" height="36" rx="8" fill="#1e3a8a" stroke="#38bdf8" stroke-width="2" />
+                <path d="M16 36 L26 20 L36 36 Z" fill="#38bdf8" />
+                <text x="54" y="30" fill="#ffffff" font-family="Montserrat" font-size="13.5" font-weight="800">BANCA MARITIMĂ</text>
+                <text x="54" y="45" fill="#93c5fd" font-family="Montserrat" font-size="9" font-weight="700" letter-spacing="2">DOBROGEA S.A.</text>
+              </svg>
+            </div>
+
+            <!-- Sponsor 3: PERLA CAPIDAVEI (APĂ MINERALĂ) -->
+            <div class="vector-logo-card" title="Apa Minerală Perla Capidavei">
+              <svg viewBox="0 0 205 64" class="partner-svg">
+                <path d="M26 12 C36 26, 38 36, 26 50 C14 36, 16 26, 26 12 Z" fill="#0ea5e9" />
+                <text x="50" y="30" fill="#ffffff" font-family="Syne" font-size="14" font-weight="800">PERLA CAPIDAVEI</text>
+                <text x="50" y="45" fill="#bae6fd" font-family="Montserrat" font-size="8.5" font-weight="700" letter-spacing="2">IZVORUL DOBROGEI</text>
+              </svg>
+            </div>
+
+            <!-- Sponsor 4: NAVROM YACHTING FICTIV -->
+            <div class="vector-logo-card" title="Pavilionul Nautic Orizont">
+              <svg viewBox="0 0 205 64" class="partner-svg">
+                <path d="M14 44 L38 44 L34 20 L20 36 Z" fill="#ffcf71" />
+                <text x="50" y="30" fill="#ffffff" font-family="Montserrat" font-size="13.5" font-weight="800">TOMIS YACHTING</text>
+                <text x="50" y="45" fill="#cbd5e1" font-family="Montserrat" font-size="8.5" font-weight="700" letter-spacing="2">PORTUL BELVEDERE</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Organizator Fictiv (în stilul Centrului Cultural Județean Constanța din subsolul Mamaia) -->
+        <div class="cultural-organizer-box">
+          <div class="organizer-crests">
+            <!-- Crest 1 -->
+            <svg viewBox="0 0 64 64" class="crest-svg" aria-label="Stema Fictivă Consiliul Litoralului">
+              <circle cx="32" cy="32" r="28" fill="none" stroke="#ffcf71" stroke-width="2" />
+              <path d="M20 38 Q 32 24, 44 38" stroke="#38bdf8" stroke-width="3" fill="none" />
+              <circle cx="32" cy="24" r="5" fill="#f04e56" />
+            </svg>
+            <!-- Crest 2 -->
+            <svg viewBox="0 0 64 64" class="crest-svg" aria-label="Stema Fictivă Filarmonica Mării">
+              <circle cx="32" cy="32" r="28" fill="none" stroke="#ffffff" stroke-width="2" />
+              <path d="M24 20 L24 44 M32 16 L32 48 M40 20 L40 44" stroke="#ffcf71" stroke-width="2.5" />
+            </svg>
+            <!-- Crest 3 -->
+            <svg viewBox="0 0 64 64" class="crest-svg" aria-label="Stema Fictivă Orașul Constanța Cultural">
+              <circle cx="32" cy="32" r="28" fill="none" stroke="#38bdf8" stroke-width="2" />
+              <polygon points="32,14 38,44 26,44" fill="#ffffff" />
+            </svg>
+          </div>
+          <h4 class="footer-burada">
+            FUNDATIA CULTURALĂ MARITIMĂ CONSTANȚA<br />
+            „PAVILIONUL DE VARĂ BELVEDERE”
+          </h4>
+          <p class="disclaimer-line">
+            Proiect demonstrativ cu tematică retro-modernă • Locație, artiști, concurs și sponsori 100% fictivi.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Panoramic Retro Seaside Illustration Footer Strip (like footer-usoara.jpg on Mamaia) -->
+  <div class="seaside-panorama" aria-hidden="true">
+    <svg viewBox="0 0 1440 160" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="panoGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#14074a" />
+          <stop offset="50%" stop-color="#f04e56" />
+          <stop offset="100%" stop-color="#0b246e" />
+        </linearGradient>
+      </defs>
+      <path d="M0 110 Q 360 50, 720 110 T 1440 95 L 1440 160 L 0 160 Z" fill="url(#panoGrad)" opacity="0.65" />
+      <path d="M0 130 Q 360 90, 720 130 T 1440 120 L 1440 160 L 0 160 Z" fill="#080326" />
+    </svg>
+  </div>
+
+  <!-- =================================================================
+       MODAL 1: REZERVARE BILETE (AMFITEATRU & PLAJA BELVEDERE)
+       ================================================================= -->
+  <div class="modal-overlay" id="ticketModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog-retro">
+      <button type="button" class="modal-close-btn" data-close-modal="ticketModal" aria-label="Închide">✕</button>
+      <span class="modal-eyebrow">CASA DE BILETE ONLINE • CONSTANȚA 2026</span>
+      <h3 id="ticketModalTitle">Rezervare Bilete Festivalul Orizont</h3>
+      <p id="ticketModalCategory" class="modal-sub">Secțiunea Muzică Ușoară &amp; Neo-Disco</p>
+
+      <form id="ticketForm" class="retro-form">
+        <label>
+          <span>Nume și Prenume</span>
+          <input type="text" id="tName" placeholder="Ex: Alexandru Ionescu" required />
+        </label>
+        <label>
+          <span>Zona din Amfiteatrul de pe Plajă</span>
+          <select id="tZone">
+            <option value="180">Sector A (În fața Orchestrei) — 180 RON / seară</option>
+            <option value="390" selected>Abonament 3 Seri (Acces Integral Amfiteatru &amp; Dig) — 390 RON</option>
+            <option value="550">Loja Belvedere Faleză (Include pliantul de colecție) — 550 RON</option>
+          </select>
+        </label>
+        <label>
+          <span>Număr de locuri</span>
+          <select id="tCount">
+            <option value="1">1 Bilet</option>
+            <option value="2" selected>2 Bilete</option>
+            <option value="4">4 Bilete</option>
+          </select>
+        </label>
+        <div class="modal-price-summary">
+          <span>Total de plată (Demo):</span>
+          <strong id="tTotalDisplay">780 RON</strong>
+        </div>
+        <button type="submit" class="btn-mamaia-primary w-100">Emite Biletul Comemorativ (Demo)</button>
+      </form>
+
+      <div id="ticketStubResult" class="ticket-stub" hidden>
+        <div class="stub-left">
+          <span class="stub-fest">FESTIVALUL ORIZONT • CONSTANȚA 2026</span>
+          <strong id="stubHolder">ALEXANDRU IONESCU</strong>
+          <span id="stubZoneText">Abonament 3 Seri • Plaja Belvedere Nord</span>
+        </div>
+        <div class="stub-right">
+          <span class="stub-seat">RÂND 04 • LOC 12</span>
+          <strong id="stubSerial">#ALB-2026</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =================================================================
+       MODAL 2: ACREDITARE JURNALIȘTI / PRESĂ (CA PE MAMAIA)
+       ================================================================= -->
+  <div class="modal-overlay" id="pressModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog-retro">
+      <button type="button" class="modal-close-btn" data-close-modal="pressModal" aria-label="Închide">✕</button>
+      <span class="modal-eyebrow">BIROUL DE PRESĂ • CENTRUL BELVEDERE</span>
+      <h3>Formular Acreditare Jurnaliști</h3>
+      <p id="pressModalSection" class="modal-sub">Ediția a XIV-a • 21–23 August 2026</p>
+
+      <form id="pressForm" class="retro-form">
+        <label>
+          <span>Nume Jurnalist / Fotograf</span>
+          <input type="text" placeholder="Ex: Elena Matei" required />
+        </label>
+        <label>
+          <span>Instituția Media / Publicația</span>
+          <input type="text" placeholder="Ex: Radio Briza Constanța" required />
+        </label>
+        <label>
+          <span>Tip Acreditare</span>
+          <select>
+            <option>Presă Scrisă &amp; Online</option>
+            <option>Fotoreporter / Cameraman (Acces Fosa Scenei)</option>
+            <option>Post Radio / Televiziune</option>
+          </select>
+        </label>
+        <button type="submit" class="btn-mamaia-primary w-100">Trimite Cererea de Acreditare</button>
+        <p id="pressFeedback" class="vote-feedback" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- =================================================================
+       MODAL 3: REGULAMENTUL OFICIAL
+       ================================================================= -->
+  <div class="modal-overlay" id="rulesModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog-retro">
+      <button type="button" class="modal-close-btn" data-close-modal="rulesModal" aria-label="Închide">✕</button>
+      <span class="modal-eyebrow">DOCUMENT OFICIAL FICTIV</span>
+      <h3>Regulamentul de Desfășurare „Orizont 2026”</h3>
+      <div class="rules-content">
+        <p><strong>1. Organizare și Locație:</strong> Festivalul se desfășoară în perioada 21–23 august 2026 pe scena Amfiteatrului pe Nisip din Golful Belvedere Nord, Constanța.</p>
+        <p><strong>2. Secțiuni Oficiale:</strong> Concursul cuprinde Secțiunea Interpretare (8 finaliști), Secțiunea Creație (5 piese originale în primă audiție) și Nocturna pe Faleză.</p>
+        <p><strong>3. Acompaniament:</strong> Toate piesele din concurs sunt interpretate100% live, cu acompaniamentul Orchestrei Reverberații Maritime, sub bagheta Maestrului Cezar Vornicu.</p>
+        <p><strong>4. Acordarea Trofeului:</strong> Ponderea notei finale este 70% Juriul de Specialitate și 30% Votul Publicului exprimat pe această pagină.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
