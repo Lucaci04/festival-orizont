@@ -1,8 +1,27 @@
 # Festivalul Orizont
 
+![Prima pagină, desktop](docs/screenshots/acasa-desktop.jpg)
+
 Site pentru un festival de muzică pe plajă: program, preselecție, vot și bilete demo.
 
 > Proiect demonstrativ. Firma, adresa, telefoanele, emailurile și recenziile sunt fictive. Orice asemănare cu o firmă reală este întâmplătoare.
+
+## Capturi de ecran
+
+| Prima pagină, telefon | Programul festivalului |
+|---|---|
+| <img src="docs/screenshots/acasa-mobil.jpg" alt="Prima pagină, telefon" width="220"> | <img src="docs/screenshots/program.jpg" alt="Programul festivalului" width="420"> |
+
+## Tehnologii
+
+HTML, CSS și JavaScript simplu.
+
+## Decizii tehnice
+
+- Fundalul cu valuri de lumină e desenat pe un canvas 2D și se redimensionează odată cu fereastra.
+- Biletele și acreditarea sunt formulare demonstrative, fără plată reală.
+- Logo-ul e SVG, deci rămâne clar la orice mărime.
+- Accesibilitate: mesaje anunțate cititoarelor de ecran (aria-live).
 
 ## Rulare
 
